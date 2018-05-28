@@ -32,15 +32,3 @@ p {
   width: 1300px;
   padding-left: 40px;
 }
-
-a {
-  position: absolute;
-  left: 50%;
-  top: 400px;
-  border: 1px solid black;
-  padding: 20px;
-  font-size: 20px;
-  cursor: pointer;
-  color: black;
-  text-decoration: none;
-}
