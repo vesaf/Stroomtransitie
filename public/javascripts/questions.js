@@ -9,11 +9,11 @@ $(document).ready(function() {
         dataType: "json",
         success: function(data, status, jqXHR) {
             console.log(typeof(data) == "object");
-            $("#question").html("<p>" + data.Question + "</p>");
+            $("#question").html("<p id=questionText>" + data.Question + "</p>");
             var answerKeys = Object.keys(data.Answers)
             var list = "";
             for (var i = 0; i < answerKeys.length; i++) {
-                list += "<li id=answer" + answerKeys[i] + ">" + data["Answers"][answerKeys[i]]["Answer"] + "</li>";
+                list += "<li class='answerText' id=answer" + answerKeys[i] + ">" + data["Answers"][answerKeys[i]]["Answer"] + "</li>";
             }
             $("#answers").html("<ul>" + list + "</ul>");
             document.addEventListener("click", function(e) {

@@ -1,12 +1,16 @@
-li {
-	cursor: pointer;
-	margin: 20px;
-}
-
 body {
 	background-image: url('/images/background.png');
 }
 
-p {
+#questionText {
 	margin: 10px;
+	font-size: 30px;
+	position: absolute;
+	top: 350px;
+	left: 50px;
+}
+
+.answerText {
+	cursor: pointer;
+	margin: 20px;
 }
