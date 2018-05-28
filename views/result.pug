@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  #container
+    p U betaald extra belasting van: 
+    if score <= 10
+      p 30%
+    if score > 10 && score <= 20
+      p 25%
+    if score > 20 && score <= 40
+      p 20%
+    if score > 40 && score <= 60
+      p 15%
+    if score > 60 && score <= 80
+      p 10%
+    if score > 80 && score <= 100
+      p 5%
+    if score > 100 && score <= 114
+      p 0%
+
+    p  
+    p Toelichting: 
+    p Uitkomsten zijn voor alle individuen gelijkwaardig, deze vertalen zich in
+    p -	Bij 100% duurzaam en/of actief betrokken komt u in de meest voordelige belastingschaal (0%)
+    p -	Bij geen affiniteit met duurzaam en/of niet actief draagt u financieel bij doordat u in de minst voordelige belastingschaal komt (30%)
+    p -	De inschaling is jaarlijks aan te passen
+
+
+    a(href="/") Opnieuw

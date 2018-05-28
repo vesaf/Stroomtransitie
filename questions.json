@@ -1,0 +1,363 @@
+{
+    "1" : {
+        "Question" : "Wat is je ambitie?",
+        "Answers" : [
+            {
+                "Answer" : "Actief bijdragen aan duurzame energie.",
+                "Score" : 0,
+                "Goto" : 2
+            },
+            {
+                "Answer" : "Ik ga een cursus doen want ik heb meer informatie nodig",
+                "Score" : 0,
+                "Goto" : 2
+            },
+            {
+                "Answer" : "Ik laat liever mijn keuze over aan een ander.",
+                "Score" : 0,
+                "Goto" : 15
+            }
+        ]
+    },
+    "2" : {
+        "Question" : "Ik vind dat de overheid t.a.v. energie en milieu richtinggevend moet zijn.",
+        "Answers" : [
+            {
+                "Answer" : "Ja, want dan doet iedereen mee.",
+                "Score" : 10,
+                "Goto" : 3
+            },
+            {
+                "Answer" : "Nee, ik bepaal liever zelf.",
+                "Score" : 0,
+                "Goto" : 3
+            }
+
+        ]
+    },
+    "3" : {
+        "Question" : "Wat heb ik hiervoor over?",
+        "Answers" : [
+            {
+                "Answer" : "Verhuizen (b.v. dichter bij het werk wonen)",
+                "Score" : 8,
+                "Goto" : 4
+            },
+            {
+                "Answer" : "Milieuvriendelijk dorp bouwen.",
+                "Score" : 8,
+                "Goto" : 4
+            },
+            {
+                "Answer" : "Eigen woning aanpassen.",
+                "Score" : 7,
+                "Goto" : 4
+            },
+            {
+                "Answer" : "Niets doen.",
+                "Score" : 0,
+                "Goto" : 4
+            }
+        ]
+    },
+    "4" : {
+        "Question" : "Het vervoermiddel van gebruik is:",
+        "Answers" : [
+            {
+                "Answer" : "Fiets",
+                "Score" : 9,
+                "Goto" : 5
+            },
+            {
+                "Answer" : "OV",
+                "Score" : 7,
+                "Goto" : 5
+            },
+            {
+                "Answer" : "Elektrische auto",
+                "Score" : 6,
+                "Goto" : 5
+            },
+            {
+                "Answer" : "Benzine of dieselauto",
+                "Score" : 0,
+                "Goto" : 5
+            }
+        ]
+    },
+    "5" : {
+        "Question" : "Ik maak gebruik van:",
+        "Answers" : [
+            {
+                "Answer" : "Gezamelijke energie-inkoop",
+                "Score" : 6,
+                "Goto" : 6
+            },
+            {
+                "Answer" : "Gezamelijke duurzame projecten zoals zonnepanelen, isolatie van woningen/flat",
+                "Score" : 7,
+                "Goto" : 6
+            },
+            {
+                "Answer" : "Geen",
+                "Score" : 0,
+                "Goto" : 6 
+            }
+        ]
+    },
+    "6" : {
+        "Question" : "Ik zet me politiek in voor een beter milieu:",
+        "Answers" : [
+            {
+                "Answer" : "Ja",
+                "Score" : 7,
+                "Goto" : 7
+            },
+            {
+                "Answer" : "Nee",
+                "Score" : 4,
+                "Goto" : 7
+            }
+        ]
+    },
+    "7" : {
+        "Question" : "Ik investeer in:",
+        "Answers" : [
+            {
+                "Answer" : "Stukje dak voor zonnepanelen",
+                "Score" : 7,
+                "Goto" : 8
+            },
+            {
+                "Answer" : "Grasdaken",
+                "Score" : 7,
+                "Goto" : 8
+            },
+            {
+                "Answer" : "Windmolenparken",
+                "Score" : 7,
+                "Goto" : 8
+            },
+            {
+                "Answer" : "Geen",
+                "Score" : 0,
+                "Goto" : 8
+            }
+        ]
+    },
+    "8" : {
+        "Question" : "Mijn energiegebruik per maand van gas is (per persoon):",
+        "Answers" : [
+            {
+                "Answer" : "Geen",
+                "Score" : 10,
+                "Goto" : 9
+            },
+            {
+                "Answer" : "€0 - €50",
+                "Score" : 7,
+                "Goto" : 9
+            },
+            {
+                "Answer" : "€50 - €100",
+                "Score" : 5,
+                "Goto" : 9
+            },
+            {
+                "Answer" : "€100 - €200",
+                "Score" : 3,
+                "Goto" : 9
+            },
+            {
+                "Answer" : "€200 - €300",
+                "Score" : 1,
+                "Goto" : 9
+            },
+            {
+                "Answer" : "€300 of meer",
+                "Score" : 0,
+                "Goto" : 9
+            }
+        ]
+    },
+    "9" : {
+        "Question" : "Mijn energiegebruik per maand van stroom is:",
+        "Answers" : [
+            {
+                "Answer" : "Geen",
+                "Score" : 10,
+                "Goto" : 10
+            },
+            {
+                "Answer" : "€0 - €50",
+                "Score" : 7,
+                "Goto" : 10
+            },
+            {
+                "Answer" : "€50 - €100",
+                "Score" : 5,
+                "Goto" : 10
+            },
+            {
+                "Answer" : "€100 - €200",
+                "Score" : 3,
+                "Goto" : 10
+            },
+            {
+                "Answer" : "€200 - €300",
+                "Score" : 1,
+                "Goto" : 10
+            },
+            {
+                "Answer" : "€300 of meer",
+                "Score" : 0,
+                "Goto" : 10
+            }
+        ]
+    },
+    "10" : {
+        "Question" : "Ik heb tijd besteed aan duurzame energieprojecten, op vrijwillige basis per maand:",
+        "Answers" : [
+            {
+                "Answer" : "Nee",
+                "Score" : 0,
+                "Goto" : 11
+            },
+            {
+                "Answer" : "2 - 4 uur",
+                "Score" : 6,
+                "Goto" : 11
+            },
+            {
+                "Answer" : "4 - 8 uur",
+                "Score" : 8,
+                "Goto" : 11
+            },
+            {
+                "Answer" : "2 dagen",
+                "Score" : 9,
+                "Goto" : 11
+            },
+            {
+                "Answer" : "3 dagen",
+                "Score" : 10,
+                "Goto" : 11
+            },
+            {
+                "Answer" : "4 dagen",
+                "Score" : 10,
+                "Goto" : 11
+            },
+            {
+                "Answer" : "5 dagen",
+                "Score" : 10,
+                "Goto" : 11
+            }
+        ]
+    },
+    "11" : {
+        "Question" : "Ik heb geld besteed aan duurzame energieprojecten, op vrijwillige basis per maand:",
+        "Answers" : [
+            {
+                "Answer" : "Nee",
+                "Score" : 0,
+                "Goto" : 12
+            },
+            {
+                "Answer" : "€1 - €50",
+                "Score" : 6,
+                "Goto" : 12
+            },
+            {
+                "Answer" : "€50 - €100",
+                "Score" : 7,
+                "Goto" : 12
+            },
+            {
+                "Answer" : "€100 - €200",
+                "Score" : 8,
+                "Goto" : 12
+            },
+            {
+                "Answer" : "€200 - €300",
+                "Score" : 9,
+                "Goto" : 12
+            },
+            {
+                "Answer" : "€300 of meer",
+                "Score" : 10,
+                "Goto" : 12
+            }
+        ]
+    },
+    "12" : {
+        "Question" : "Ik heb wel/geen energie/milieuvriendelijke apparaten (bijvoorbeeld: wasmachine, vaatwasser, koeler, vriezer of PC) in huis (meer dan 3 sterren):",
+        "Answers" : [
+            {
+                "Answer" : "Nee",
+                "Score" : 2,
+                "Goto" : 13
+            },
+            {
+                "Answer" : "1 apparaat",
+                "Score" : 3,
+                "Goto" : 13
+            },
+            {
+                "Answer" : "2 apparaten",
+                "Score" : 5,
+                "Goto" : 13
+            },
+            {
+                "Answer" : "3 apparaten",
+                "Score" : 7,
+                "Goto" : 13
+            },
+            {
+                "Answer" : "4 apparaten",
+                "Score" : 8,
+                "Goto" : 13
+            },
+            {
+                "Answer" : "5 of meer apparaten",
+                "Score" : 9,
+                "Goto" : 13
+            }
+        ]
+    },
+    "13" : {
+        "Question" : "Ik ben wel/geen vegetariër:",
+        "Answers" : [
+            {
+                "Answer" : "Vegetariër",
+                "Score" : 10,
+                "Goto" : 14
+            },
+            {
+                "Answer" : "Ik eet alleen biologisch vlees",
+                "Score" : 8,
+                "Goto" : 14
+            },
+            {
+                "Answer" : "Ik eet alle vlees",
+                "Score" : 0,
+                "Goto" : 14
+            }
+        ]
+    },
+    "14" : {
+        "Question" : "Ik doe een cursus “Energiewijzer” (of ben bereid dat te gaan doen):",
+        "Answers" : [
+            {
+                "Answer" : "Ja",
+                "Score" : 10,
+                "Goto" : 15
+            },
+            {
+                "Answer" : "Nee",
+                "Score" : 4,
+                "Goto" : 15
+            }
+        ]
+    }
+}
