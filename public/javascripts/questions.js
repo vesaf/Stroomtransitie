@@ -9,13 +9,13 @@ $(document).ready(function() {
         dataType: "json",
         success: function(data, status, jqXHR) {
             console.log(typeof(data) == "object");
-            $("#question").html("<p id=questionText>" + data.Question + "</p>");
+            $("#question").html("<p id=questionText>Vraag: " + data.Question + "</p>");
             var answerKeys = Object.keys(data.Answers)
             var list = "";
             for (var i = 0; i < answerKeys.length; i++) {
                 list += "<li class='answerText' id=answer" + answerKeys[i] + ">" + data["Answers"][answerKeys[i]]["Answer"] + "</li>";
             }
-            $("#answers").html("<ul>" + list + "</ul>");
+            $("#answers").html("<ul>Keuzes:" + list + "</ul>");
             document.addEventListener("click", function(e) {
                 console.log(e.target.id.substring(0, 6));
                 if (e.target.id.substring(0, 6) == "answer") {
