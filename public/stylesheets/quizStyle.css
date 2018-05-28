@@ -2,6 +2,11 @@ li {
 	cursor: pointer;
 	margin: 20px;
 }
+
+body {
+	background-image: url('/images/background.png');
+}
+
 p {
 	margin: 10px;
 }
