@@ -17,12 +17,13 @@ body {
 	padding: 5px;
 	font-weight: bold;
 	border: 1px solid black;
+	max-width: 425px;
 }
 
 ul {
 	position: absolute;
 	top: 350px;
-	left: 1300px;
+	left: 1200px;
 	list-style-type: none;
     margin: 0;
 	padding: 0;
