@@ -1,6 +1,5 @@
 $(document).ready(function() {
     var Qno = window.location.hash.substring(4);
-    console.log(Qno);
     jQuery.ajax({
         type: "GET",
         url: "/quiz/single",
