@@ -26,7 +26,11 @@ $(document).ready(function() {
                     jQuery.ajax({
                         type: "POST",
                         url: "/quiz/send",
-                        data: JSON.stringify({Score: data["Answers"][answerId]["Score"]}),
+                        data: JSON.stringify({
+                            Score: data["Answers"][answerId]["Score"],
+                            Answer: answerId,
+                            Question: Qno
+                        }),
                         success: function(data, status, jqXHR) {
                             console.log("succes");
                             window.location = "/quiz#no=" + nextQ;

@@ -1,12 +1,15 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
+var csvWriter = require('csv-write-stream');
+
 
 var questions = require('../questions.json');
 var score = 0;
+var answers = {};
 /* GET quiz. */
 router.get('/', function(req, res, next) {
   res.render('quiz', { question: 'Express' });
-  console.log("set 0")
 });
 
 /* GET quiz question. */
@@ -15,32 +18,40 @@ router.get('/single', function(req, res, next) {
   var keys = Object.keys(questions);
   var found = false;
   for(var i = 0; i < keys.length; i++) {
-    // console.log(keys[i] == Qno);
     if (keys[i] == Qno) {
-      // console.log(JSON.stringify(questions[keys[i]]));
       res.setHeader('Content-Type', 'application/json');
-      res.status(200).send(JSON.stringify(questions[keys[i]]));
+      res.send(JSON.stringify(questions[keys[i]]));
       var found = true;
     }
   }
   if (!found) {
-    res.status(200).send();
+    res.send();
   }
 });
 
 router.post('/send', function (req, res, next) {
-  score += parseInt(JSON.parse(Object.keys(req.body)[0])["Score"]);
-  console.log("score: " + score);
-  res.status(200).send();
+  var data = JSON.parse(Object.keys(req.body)[0]);
+  score += parseInt(data["Score"]);
+  answers[data["Question"]] = parseInt(data["Answer"]);
+
+  res.send();
 });
 
 router.get("/score", function (req, res, next) {
-  res.status(200).send({score: score});
+  res.send({score: score});
 });
 
 router.get("/result", function (req, res, next) {
   res.render('result', { score: score });
+  saveAnswers();
   score = 0;
 });
+
+function saveAnswers() {
+  var writer = csvWriter();
+  writer.pipe(fs.createWriteStream('userData.csv', {flags: 'a'}));
+  writer.write(answers);
+  writer.end();
+}
 
 module.exports = router;
