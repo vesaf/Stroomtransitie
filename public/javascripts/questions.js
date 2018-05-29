@@ -8,6 +8,12 @@ $(document).ready(function() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(data, status, jqXHR) {
+            var timer = setTimer();
+            // TODO: When buttons, need different event
+            document.addEventListener("mousemove", function() {
+                clearTimeout(timer);
+                timer = setTimer();
+            });
             console.log(typeof(data) == "object");
             $("#question").html("<p id=questionText>Vraag: " + data.Question + "</p>");
             var answerKeys = Object.keys(data.Answers)
@@ -17,11 +23,11 @@ $(document).ready(function() {
             }
             $("#answers").html("<ul>Keuzes:" + list + "</ul>");
             document.addEventListener("click", function(e) {
-                console.log(e.target.id.substring(0, 6));
                 if (e.target.id.substring(0, 6) == "answer") {
                     var answerId = e.target.id.substring(6);
+                    $("#answer" + answerId).css({"borderWidth": "3px"});
+                    
                     var nextQ = data["Answers"][answerId]["Goto"];
-                    console.log(data["Answers"][answerId]["Score"]);
 
                     jQuery.ajax({
                         type: "POST",
@@ -49,3 +55,18 @@ $(document).ready(function() {
         }
     });
 });
+
+function setTimer() {
+    return timer = setTimeout(function() {
+        jQuery.ajax({
+            type: "POST",
+            url: "/quiz/reset",
+            success: function(data, status, jqXHR) {
+                window.location = "/";
+            },
+            error: function() {
+                console.error("Could not reset quiz");
+            }
+        });
+    }, 120000);
+}

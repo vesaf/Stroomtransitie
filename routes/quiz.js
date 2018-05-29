@@ -47,6 +47,14 @@ router.get("/result", function (req, res, next) {
   score = 0;
 });
 
+router.post("/reset", function (req, res, next) {
+  if (Object.keys(answers).length > 0) {
+    saveAnswers();
+    score = 0;
+  }
+  res.send();
+});
+
 function saveAnswers() {
   var writer = csvWriter();
   writer.pipe(fs.createWriteStream('userData.csv', {flags: 'a'}));
