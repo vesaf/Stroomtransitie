@@ -1,7 +1,9 @@
 extends layout
 
 block content
+  link(rel='stylesheet', href='/stylesheets/resultStyle.css')
   #container
+    h1 Uislag
     p U betaald extra belasting van: 
     if score <= 10
       p 30%
