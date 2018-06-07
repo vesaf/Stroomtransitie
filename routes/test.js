@@ -19,7 +19,7 @@ gpioButton.on('interrupt', function (level) {
 
 function btnPressed(btnState) {
   // read button state, 
-  var level = gpioButton.digitalRead(27)
+  var level = gpioButton.digitalRead(25)
   if (btnState === level) {
       console.log('buttonState: ' + level);
       io.emit('state', level); 
