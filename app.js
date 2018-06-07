@@ -8,6 +8,32 @@ var indexRouter = require('./routes/index');
 var quizRouter = require('./routes/quiz');
 var testRouter = require('./routes/test');
 
+var Gpio = require('pigpio').Gpio;
+
+var btnState;
+var timeOutId;
+
+var gpioButton = new Gpio(25, {
+  mode: Gpio.INPUT,
+  pullUpDown: Gpio.PUD_UP,
+  edge: Gpio.EITHER_EDGE
+});
+
+gpioButton.on('interrupt', function (level) {
+  var btnState = level;
+  clearTimeout(timeOutId);
+  timeOutId = setTimeout(btnPressed, 10, btnState);
+});
+
+function btnPressed(btnState) {
+  // read button state, 
+  var level = gpioButton.digitalRead(25)
+  if (btnState === level) {
+      console.log('buttonState: ' + level);
+      io.emit('state', level); 
+  }
+};
+
 var app = express();
 
 // view engine setup
