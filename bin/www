@@ -14,8 +14,8 @@ var  ports = [19, 6, 5, 13, 26];
 gpioButtons = {19: {}, 6: {}, 5: {}, 13: {}, 26: {}};
 var timeOutId;
 
-for (var i = 0; i < ports.length; i++) {
-  var portNo = ports[i];
+for (var i = 0; i < Object.keys(gpioButtons).length; i++) {
+  var portNo = Object.keys(gpioButtons)[i];
   gpioButtons[portNo]["object"] = new Gpio(portNo, {
     mode: Gpio.INPUT,
     pullUpDown: Gpio.PUD_UP,
@@ -25,7 +25,7 @@ for (var i = 0; i < ports.length; i++) {
     var btnState = level;
     var portNo = this.gpio;
     clearTimeout(gpioButtons[portNo]["timeOutId"]);
-    gpioButtons[portNo]["timeOutId"] = setTimeout(btnPressed, 10, btnState, portNo);
+    gpioButtons[portNo]["timeOutId"] = setTimeout(btnPressed, 50, btnState, portNo);
   });
 }
 
