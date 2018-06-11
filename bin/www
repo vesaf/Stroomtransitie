@@ -30,7 +30,6 @@ function btnPressed(btnState) {
   var level = gpioButton.digitalRead(25)
   if (btnState === level) {
       console.log('buttonState: ' + level);
-      io.emit('state', level); 
   }
 };
 
