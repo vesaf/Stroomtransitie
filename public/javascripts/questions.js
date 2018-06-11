@@ -1,4 +1,7 @@
+
 $(document).ready(function() {
+    setupSocket();
+
     var Qno = window.location.hash.substring(4);
     jQuery.ajax({
         type: "GET",
@@ -68,4 +71,23 @@ function setTimer() {
             }
         });
     }, 120000);
+}
+
+function setupSocket() {
+    var socket = io.connect('http://localhost');
+
+    socket.on('buttonState', triggerAnswer(stateObject));
+}
+
+function triggerAnswer(stateObject) {
+    var options = [19, 6, 5, 13, 26];
+    var found = false;
+    for (var i = 0; i < options.length; i++) {
+        if (options[i] == stateObject["pin"]) {
+            found = true;
+            if ($("#answer" + i) && stateObject["state"] > 0) $("#answer" + i).trigger('click');
+            break;
+        }
+    }
+    if (!found) console.error("Unknown button pressed");
 }

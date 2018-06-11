@@ -7,47 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('hackathon:server');
 var http = require('http');
+var socket = require('socket.io');
 
-var Gpio = require('pigpio').Gpio;
-
-var  ports = [19, 6, 5, 13, 26];
-gpioButtons = {19: {}, 6: {}, 5: {}, 13: {}, 26: {}};
-var timeOutId;
-
-for (var i = 0; i < Object.keys(gpioButtons).length; i++) {
-  var portNo = Object.keys(gpioButtons)[i];
-  gpioButtons[portNo]["object"] = new Gpio(portNo, {
-    mode: Gpio.INPUT,
-    pullUpDown: Gpio.PUD_UP,
-    edge: Gpio.EITHER_EDGE
-  });
-  gpioButtons[portNo]["object"].on('interrupt', function (level) {
-    var btnState = level;
-    var portNo = this.gpio;
-    clearTimeout(gpioButtons[portNo]["timeOutId"]);
-    gpioButtons[portNo]["timeOutId"] = setTimeout(btnPressed, 50, btnState, portNo);
-  });
-}
-
-// var gpioButton26 = new Gpio(26, {
-//   mode: Gpio.INPUT,
-//   pullUpDown: Gpio.PUD_UP,
-//   edge: Gpio.EITHER_EDGE
-// });
-
-// gpioButton26.on('interrupt', function (level) {
-//   var btnState = level;
-//   clearTimeout(timeOutId);
-//   timeOutId = setTimeout(btnPressed, 10, btnState);
-// });
-
-function btnPressed(btnState, portNo) {
-  // read button state, 
-  var level = gpioButtons[portNo]["object"].digitalRead(portNo)
-  if (btnState === level) {
-      console.log('buttonState' + portNo + ': ' + level);
-  }
-};
 
 /**
  * Get port from environment and store in Express.
@@ -129,3 +90,38 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+var Gpio = require('pigpio').Gpio;
+var io = socket(server);
+
+gpioButtons = {19: {}, 6: {}, 5: {}, 13: {}, 26: {}};
+
+for (var i = 0; i < Object.keys(gpioButtons).length; i++) {
+  var portNo = Object.keys(gpioButtons)[i];
+  gpioButtons[portNo]["object"] = new Gpio(portNo, {
+    mode: Gpio.INPUT,
+    pullUpDown: Gpio.PUD_UP,
+    edge: Gpio.EITHER_EDGE
+  });
+  
+  gpioButtons[portNo]["object"].on('interrupt', function (level) {
+    var btnState = level;
+    var portNo = this.gpio;
+    clearTimeout(gpioButtons[portNo]["timeOutId"]);
+    gpioButtons[portNo]["timeOutId"] = setTimeout(btnPressed, 50, btnState, portNo);
+  });
+}
+
+function btnPressed(btnState, portNo) {
+  // read button state, 
+  var level = gpioButtons[portNo]["object"].digitalRead(portNo)
+  if (btnState === level) {
+      console.log('buttonState' + portNo + ': ' + level);
+      io.emit('buttonState', {'pin': portNo, 'state': level});
+  }
+};
+
+io.on('connection', function (socket) {
+  console.log('socket connected: ' + socket.id);
+  socket.emit('fullscreen')
+});
