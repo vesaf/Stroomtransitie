@@ -169,12 +169,7 @@
                 "Goto" : 9
             },
             {
-                "Answer" : "€200 - €300",
-                "Score" : 1,
-                "Goto" : 9
-            },
-            {
-                "Answer" : "€300 of meer",
+                "Answer" : "€200 of meer",
                 "Score" : 0,
                 "Goto" : 9
             }
@@ -204,12 +199,7 @@
                 "Goto" : 10
             },
             {
-                "Answer" : "€200 - €300",
-                "Score" : 1,
-                "Goto" : 10
-            },
-            {
-                "Answer" : "€300 of meer",
+                "Answer" : "€200 of meer",
                 "Score" : 0,
                 "Goto" : 10
             }
@@ -239,17 +229,7 @@
                 "Goto" : 11
             },
             {
-                "Answer" : "3 dagen",
-                "Score" : 10,
-                "Goto" : 11
-            },
-            {
-                "Answer" : "4 dagen",
-                "Score" : 10,
-                "Goto" : 11
-            },
-            {
-                "Answer" : "5 dagen",
+                "Answer" : "3 of meer",
                 "Score" : 10,
                 "Goto" : 11
             }
@@ -279,12 +259,7 @@
                 "Goto" : 12
             },
             {
-                "Answer" : "€200 - €300",
-                "Score" : 9,
-                "Goto" : 12
-            },
-            {
-                "Answer" : "€300 of meer",
+                "Answer" : "€200 of meer",
                 "Score" : 10,
                 "Goto" : 12
             }
@@ -314,13 +289,8 @@
                 "Goto" : 13
             },
             {
-                "Answer" : "4 apparaten",
-                "Score" : 8,
-                "Goto" : 13
-            },
-            {
-                "Answer" : "5 of meer apparaten",
-                "Score" : 9,
+                "Answer" : "4 of meer apparaten",
+                "Score" : 10,
                 "Goto" : 13
             }
         ]
