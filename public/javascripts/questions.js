@@ -21,7 +21,7 @@ $(document).ready(function() {
             var answerKeys = Object.keys(data.Answers)
             var list = "";
             for (var i = 0; i < answerKeys.length; i++) {
-                list += "<li class='answerText' id=answer" + String.fromCharCode(i + 65) + ": " + answerKeys[i] + ">" + data["Answers"][answerKeys[i]]["Answer"] + "</li>";
+                list += "<li class='answerText' id=answer"  + answerKeys[i] + ">" + String.fromCharCode(i + 65) + ": " + data["Answers"][answerKeys[i]]["Answer"] + "</li>";
             }
             $("#answers").html("<ul>Keuzes:" + list + "</ul>");
             document.addEventListener("click", function(e) {
