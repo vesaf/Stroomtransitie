@@ -10,26 +10,42 @@ var http = require('http');
 
 var Gpio = require('pigpio').Gpio;
 
-var btnState;
+var  ports = [19, 6, 5, 13, 26];
+gpioButtons = {19: {}, 6: {}, 5: {}, 13: {}, 26: {}};
 var timeOutId;
 
-var gpioButton = new Gpio(25, {
-  mode: Gpio.INPUT,
-  pullUpDown: Gpio.PUD_UP,
-  edge: Gpio.EITHER_EDGE
-});
+for (let i = 0; i < ports.length; i++) {
+  var portNo = ports[i];
+  gpioButtons[portNo]["object"] = new Gpio(portNo, {
+    mode: Gpio.INPUT,
+    pullUpDown: Gpio.PUD_UP,
+    edge: Gpio.EITHER_EDGE
+  });
+  gpioButtons[portNo]["object"].on('interrupt', function (level) {
+    var btnState = level;
+    var portNo = this.pin;
+    clearTimeout(gpioButtons[portNo]["timeOutId"]);
+    gpioButtons[portNo]["timeOutId"] = setTimeout(btnPressed, 10, btnState, portNo);
+  });
+}
 
-gpioButton.on('interrupt', function (level) {
-  var btnState = level;
-  clearTimeout(timeOutId);
-  timeOutId = setTimeout(btnPressed, 10, btnState);
-});
+// var gpioButton26 = new Gpio(26, {
+//   mode: Gpio.INPUT,
+//   pullUpDown: Gpio.PUD_UP,
+//   edge: Gpio.EITHER_EDGE
+// });
 
-function btnPressed(btnState) {
+// gpioButton26.on('interrupt', function (level) {
+//   var btnState = level;
+//   clearTimeout(timeOutId);
+//   timeOutId = setTimeout(btnPressed, 10, btnState);
+// });
+
+function btnPressed(btnState, portNo) {
   // read button state, 
-  var level = gpioButton.digitalRead(25)
+  var level = gpioButtons[portNo]["object"].digitalRead(portNo)
   if (btnState === level) {
-      console.log('buttonState: ' + level);
+      console.log('buttonState' + portNo + ': ' + level);
   }
 };
 
