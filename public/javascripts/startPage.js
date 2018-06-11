@@ -1,11 +1,14 @@
 
 $(document).ready(function() {
     var socket = io.connect('http://localhost');
-    socket.on('buttonState', triggerAnswer(stateObject));
+    socket.on('buttonState', function(stateObject) {
+        triggerAnswer(stateObject);
+    });
 });
 
 
 function triggerAnswer(stateObject) {
+    
     var options = [19, 6, 5, 13, 26];
     var found = false;
     for (var i = 0; i < options.length; i++) {

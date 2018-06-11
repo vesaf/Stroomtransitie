@@ -76,7 +76,9 @@ function setTimer() {
 function setupSocket() {
     var socket = io.connect('http://localhost');
 
-    socket.on('buttonState', triggerAnswer(stateObject));
+    socket.on('buttonState', function(stateObject) {
+        triggerAnswer(stateObject)
+    });
 }
 
 function triggerAnswer(stateObject) {
