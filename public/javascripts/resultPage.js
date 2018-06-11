@@ -14,7 +14,7 @@ function triggerAnswer(stateObject) {
     for (var i = 0; i < options.length; i++) {
         if (options[i] == stateObject["pin"]) {
             found = true;
-            if (stateObject["state"] > 0) window.location = "/quiz#id=1";
+            if (stateObject["state"] > 0) window.location = "/";
             break;
         }
     }
