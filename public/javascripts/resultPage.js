@@ -19,7 +19,10 @@ function triggerAnswer(stateObject) {
     for (var i = 0; i < options.length; i++) {
         if (options[i] == stateObject["pin"]) {
             found = true;
-            if (stateObject["state"] > 0) window.location = "/";
+            if (stateObject["state"] > 0) {
+                $("#restartButton").css({"borderWidth": "3px"});
+                window.location = "/";
+            }
             break;
         }
     }
