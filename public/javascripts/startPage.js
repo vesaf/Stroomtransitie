@@ -6,7 +6,9 @@ $(document).ready(function() {
     });
     var startButton = document.getElementById("startButton");
     startButton.addEventListener("click", function() {
+        console.log("start");
         $("startButton").css({"borderWidth": "3px"});
+        window.location = "/quiz#no=1";
     });
 });
 

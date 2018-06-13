@@ -5,8 +5,10 @@ $(document).ready(function() {
         triggerAnswer(stateObject);
     });
     var restartButton = document.getElementById("restartButton");
-    startButton.addEventListener("click", function() {
+    restartButton.addEventListener("click", function() {
+        console.log("restart");
         $("restartButton").css({"borderWidth": "3px"});
+        window.location = "/";
     });
 });
 
