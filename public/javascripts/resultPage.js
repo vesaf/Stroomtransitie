@@ -4,6 +4,10 @@ $(document).ready(function() {
     socket.on('buttonState', function(stateObject) {
         triggerAnswer(stateObject);
     });
+    var restartButton = document.getElementById("restartButton");
+    startButton.addEventListener("click", function() {
+        $("restartButton").css({"borderWidth": "3px"});
+    });
 });
 
 

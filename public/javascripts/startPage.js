@@ -4,6 +4,10 @@ $(document).ready(function() {
     socket.on('buttonState', function(stateObject) {
         triggerAnswer(stateObject);
     });
+    var startButton = document.getElementById("startButton");
+    startButton.addEventListener("click", function() {
+        $("startButton").css({"borderWidth": "3px"});
+    });
 });
 
 
@@ -20,3 +24,4 @@ function triggerAnswer(stateObject) {
     }
     if (!found) console.error("Unknown button pressed");
 }
+
