@@ -6,8 +6,7 @@ $(document).ready(function() {
     });
     var restartButton = document.getElementById("restartButton");
     restartButton.addEventListener("click", function() {
-        console.log("restart");
-        $("restartButton").css({"borderWidth": "3px"});
+        $("#restartButton").css({"borderWidth": "3px"});
         window.location = "/";
     });
 });
