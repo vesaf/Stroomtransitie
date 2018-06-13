@@ -3,6 +3,7 @@ body {
   margin: 0;
   overflow: hidden;
   background-color: rgb(209, 250, 249);
+  cursor: none;
 }
 
 a {
